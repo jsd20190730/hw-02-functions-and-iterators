@@ -31,6 +31,22 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+function blackJack(playerCardScore,dealerCardScore){
+  if (playerCardScore === 21 || dealerCardScore === 21){
+    return 21
+  } else if (playerCardScore > 21 && dealerCardScore > 21){
+    return 0
+  } else if (playerCardScore < 21 && dealerCardScore > 21){
+    return playerCardScore
+  } else if (playerCardScore > 21 && dealerCardScore < 21){
+    return dealerCardScore
+  } else {
+    return Math.max(playerCardScore,dealerCardScore)
+  }
+}
+
+console.log(blackJack(19,21)) // INSERT ANY TWO NUMBERS
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -45,7 +61,7 @@ Create a function named `wordCount()` that accepts a parameter called "phrase" w
 For example, the phrase: "olly olly in come free" should result in output that looks similar to the following:
 
 ```
-olly: 1
+olly: 2
 in: 1
 come: 1
 free: 1
@@ -90,6 +106,33 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+
+function wordCount(phrase){
+
+  // split phrase into words
+  let splitWords = phrase.split(' ')
+  
+  // find how many times a value occurs in any array
+  function getOccurrence(array, word) {
+    return array.filter((v) => (v === word)).length;
+  }
+  
+  // create new array using above function
+  let newArray = splitWords.map(function(word){
+    return `${word}: ${getOccurrence(splitWords, word)}`
+  })
+
+  // remove duplicates from the new array
+  let uniqueArray = new Set(newArray)
+  newArray = [...uniqueArray]
+
+  // print out the new array
+  newArray.forEach(function(word){
+    console.log(word)
+  })
+}
+
+wordCount("olly olly in come free") // INSERT ANY PHRASE
 
 // Add your code above this line
 
@@ -136,6 +179,37 @@ console.log('Problem 3:')
 
 // Add your code below this line
 
+function scrabbleScore(word){
+
+  //split word into characters
+  let splitWord = word.split('')
+  
+  // create new array of points from characters
+  let arrayOfPoints = splitWord.map(function(character) {
+    if (character === 'q' || character === 'z'){
+      return 10
+    } else if (character === 'j' || character === 'x'){
+      return 8
+    } else if (character === 'k'){
+      return 5
+    } else if (character === 'f' || character === 'h' || character === 'v' || character === 'w' || character === 'y'){
+      return 4
+    } else if (character === 'b' || character === 'c' || character === 'm' || character === 'p'){
+      return 3
+    } else if (character === 'd' || character === 'g'){
+      return 2
+    } else {
+      return 1
+    }
+  })
+
+  // add points
+  let totalPoints = arrayOfPoints.reduce((sum, currentNumber) => sum + currentNumber)
+  console.log(totalPoints)
+}
+
+scrabbleScore('cabbage') // INSERT ANY WORD
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -175,6 +249,15 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+function isPalindrome(word){
+  let splitWord = word.split('')
+  let reverseArray = splitWord.reverse()
+  let reversedWord = reverseArray.join('')
+  word === reversedWord ? console.log('true') : console.log('false')
+}
+  
+isPalindrome('noon') // INSERT ANY WORD
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -207,6 +290,12 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
+
+function doubleLetters(word){
+    word.length === (new Set(word)).size ? console.log('false') : console.log('true')
+}
+
+doubleLetters('loop') // INSERT ANY WORD
 
 // Add your code above this line
 

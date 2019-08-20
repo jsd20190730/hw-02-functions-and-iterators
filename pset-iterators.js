@@ -63,6 +63,19 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+const namesOnly = presidents.map(function(president){
+  return president.president
+})
+
+const presidentsNamedJames = namesOnly.filter(function(name){
+  let firstName = name.replace(/ .*/,'')
+  if (firstName === 'James') {
+    return name
+  }
+})
+
+console.log(presidentsNamedJames)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -88,6 +101,12 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+const presidentialParties = presidents.map(function(president){
+  return president.party
+})
+
+console.log(presidentialParties)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -107,6 +126,26 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 console.log('Problem 3:')
 
 // Add your code below this line
+
+// add new property
+const addFirstYear = presidents.map(function(president){
+  president.year = president.took_office.substring(0, 4)
+  return president
+})
+
+// filter by specified range
+const inRange = addFirstYear.filter(function(president){
+  if (1990 > president.year && president.year > 1850) {
+    return president
+  }
+})
+
+// extract name property
+const presidentsBetween1850and1900 = inRange.map(function(president){
+  return president.president
+})
+
+console.log(presidentsBetween1850and1900)
 
 // Add your code above this line
 
@@ -129,6 +168,16 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+const isDead = presidents.filter(function(president){
+  return president.death_year === null
+})
+
+const livingPresidents = isDead.map(function(president){
+  return president.president
+})
+
+console.log(livingPresidents)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -150,6 +199,12 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
+const firstRepublican = presidents.find(function(president){
+  return president.party === 'Republican'
+})
+
+console.log(firstRepublican.president)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -170,6 +225,26 @@ called `shortTermPresidents`, declared with const
 console.log('Problem 6:')
 
 // Add your code below this line
+
+const leftOffice = presidents.filter(function(president){
+  return president.left_office !== null
+})
+
+const addYears = leftOffice.map(function(president){
+  president.firstYear = president.took_office.substring(0, 4)
+  president.lastYear = president.left_office.substring(0, 4)
+  return president
+})
+
+const lessThanFour = presidents.filter(function(president){
+  return president.lastYear - president.firstYear < 4
+})
+
+const shortTermPresidents = lessThanFour.map(function(president){
+  return president.president
+})
+
+console.log(shortTermPresidents)
 
 // Add your code above this line
 
