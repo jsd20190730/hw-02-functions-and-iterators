@@ -96,14 +96,29 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+
+
 function wordCount(phrase) {
-  phrase.split("")
-  console.log(phrase)
+  //spliting the phrase into words in an array
+  const phraseWords = phrase.split(" ")
+  //object to contain instances of a word
+  let wordMapObj = {}
+  //runs through object phraseWords
+  //and adds string of number = instances of word to object wordMapObj
+  phraseWords.forEach((word) => {
+    if (wordMapObj[word] === undefined){
+    wordMapObj[word] = 1} else {
+    wordMapObj[word] += 1}
+  })
+  //returns an array of keys from wordMapObj to print
+  Object.keys(wordMapObj).forEach(function (word) {
+    console.log(`${word}: ${wordMapObj[word]}`)
+  })
 }
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(wordCount("Baby shark, doo doo doo doo doo doo"))
 console.log('-----------------')
 
 /***********
