@@ -102,7 +102,7 @@ function wordCount(phrase) {
   //spliting the phrase into words in an array
   const phraseWords = phrase.split(" ")
   //object to contain instances of a word
-  let wordMapObj = {}
+  const wordMapObj = {}
   //runs through object phraseWords
   //and adds string of number = instances of word to object wordMapObj
   phraseWords.forEach((word) => {
