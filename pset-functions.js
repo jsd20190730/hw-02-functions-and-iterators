@@ -96,7 +96,10 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
-
+function wordCount(phrase) {
+  phrase.split("")
+  console.log(phrase)
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
