@@ -62,7 +62,15 @@ declared with const
 console.log('Problem 1:')
 
 // Add your code below this line
+const presidentsNamedJames = []
+presidents.forEach(function(element){
+  let fullName = element.president.split(" ")
+  if (fullName[0] === "James"){
+    presidentsNamedJames.push(element)
+  }
+})
 
+console.log(presidentsNamedJames)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -87,7 +95,12 @@ Tip: your new array should contain 45 elements
 console.log('Problem 2:')
 
 // Add your code below this line
+const presidentialParties = []
+presidents.forEach(function(element){
+  presidentialParties.push(element.party)
+})
 
+console.log(presidentialParties)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -107,7 +120,15 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 console.log('Problem 3:')
 
 // Add your code below this line
+const presidentsBetween1850and1900 = []
+presidents.forEach(function(element){
+  let officeYearArr = element.took_office.split("-")
+  if (officeYearArr[0] >= 1850 && officeYearArr[0] <= 1900){
+    presidentsBetween1850and1900.push(element)
+  }
+})
 
+console.log(presidentsBetween1850and1900)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -128,7 +149,14 @@ declared with const
 console.log('Problem 4:')
 
 // Add your code below this line
+const livingPresidents = []
+presidents.forEach(function(element){
+  if (element.death_year === null){
+    livingPresidents.push(element)
+  }
+})
 
+console.log(livingPresidents)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -150,6 +178,15 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
+function checkParty(president){
+  if (president.party === 'Republican'){
+    return president.president
+  }
+}
+
+const firstRepublican = presidents.find(checkParty)
+console.log(firstRepublican)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -170,7 +207,20 @@ called `shortTermPresidents`, declared with const
 console.log('Problem 6:')
 
 // Add your code below this line
+const shortTermPresidents = []
 
+presidents.forEach(function(element){
+  let date1 = new Date (element.took_office)
+  let date2 = new Date (element.left_office)
+
+  let time = (date2 - date1)/1000/60/60/24
+
+  if (time > 1459){
+    shortTermPresidents.push(element)
+  }
+
+  console.log(shortTermPresidents)
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
