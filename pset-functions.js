@@ -159,11 +159,43 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+function scrabbleScore(word) {
+  //creates an array with each letter as a string
+  const letter = word.split("")
+  const letterValue = {}
 
+  //NEED to transfrom letters into lowercase
+  //goes through each element in the letter array
+  //assigns a value for the letter to a key in the letterValue object
+  letter.forEach((element) => {
+    if (letterValue[element] === undefined) {
+      if (letterValue[element] === "q" || "z") {
+      letterValue[element] = 10} else if (letterValue[element] === "j" || "x") {
+      letterValue[element] = 8} else if (letterValue[element] === "k"){
+      letterValue[element] = 5} else if (letterValue[element] === "f" || "h" || "v" || "w" || "y"){
+      letterValue[element] = 4} else if (letterValue[element] === "b" || "c" || "m" || "p"){
+      letterValue[element] = 3} else if (letterValue[element] === "d" || "g") {
+      letterValue[element] = 2} else {
+      letterValue[element] = 1}
+    } else {
+      if (letterValue[element] === "q" || "z") {
+      letterValue[element] += 10} else if (letterValue[element] === "j" || "x") {
+      letterValue[element] += 8} else if (letterValue[element] === "k"){
+      letterValue[element] += 5} else if (letterValue[element] === "f" || "h" || "v" || "w" || "y"){
+      letterValue[element] += 4} else if (letterValue[element] === "b" || "c" || "m" || "p"){
+      letterValue[element] += 3} else if (letterValue[element] === "d" || "g") {
+      letterValue[element] += 2} else {
+      letterValue[element] += 1}
+    }
+  })
+  return letterValue
+
+  //NEED to add value of all values of each key in the object
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(scrabbleScore('test'))
 console.log('-----------------')
 
 /***********
