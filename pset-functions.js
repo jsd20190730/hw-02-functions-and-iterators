@@ -208,9 +208,6 @@ function scrabbleScore(word) {
   let result = scoresReal.reduce((sum, currentNumber) =>
   sum + currentNumber, 0)
   console.log(result)
-
-
-  //NEED to add value of all values of each key in the object
 }
 
 // Add your code above this line
