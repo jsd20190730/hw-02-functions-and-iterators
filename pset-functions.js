@@ -199,8 +199,13 @@ function scrabbleScore(word) {
   letterOccurence["r"] *= 1
   letterOccurence["t"] *= 1
 
+
   let scores = Object.values(letterOccurence)
-  let result = scores.reduce((sum, currentNumber) =>
+  let scoresReal = scores.filter (number => {
+    return number === number
+  })
+  // console.log(scoresReal)
+  let result = scoresReal.reduce((sum, currentNumber) =>
   sum + currentNumber, 0)
   console.log(result)
 
@@ -211,7 +216,7 @@ function scrabbleScore(word) {
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log(scrabbleScore('qquizj'))
+console.log(scrabbleScore('cabbage'))
 console.log('-----------------')
 
 /***********
@@ -246,7 +251,9 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 4:')
 
 // Add your code below this line
+function isPalindrome(word) {
 
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
