@@ -160,42 +160,58 @@ console.log('Problem 3:')
 
 // Add your code below this line
 function scrabbleScore(word) {
-  //creates an array with each letter as a string
+  // creates an array with each letter as a string
   const letter = word.split("")
-  const letterValue = {}
+  let letterOccurence = {}
 
   //NEED to transfrom letters into lowercase
   //goes through each element in the letter array
   //assigns a value for the letter to a key in the letterValue object
   letter.forEach((element) => {
-    if (letterValue[element] === undefined) {
-      if (letterValue[element] === "q" || "z") {
-      letterValue[element] = 10} else if (letterValue[element] === "j" || "x") {
-      letterValue[element] = 8} else if (letterValue[element] === "k"){
-      letterValue[element] = 5} else if (letterValue[element] === "f" || "h" || "v" || "w" || "y"){
-      letterValue[element] = 4} else if (letterValue[element] === "b" || "c" || "m" || "p"){
-      letterValue[element] = 3} else if (letterValue[element] === "d" || "g") {
-      letterValue[element] = 2} else {
-      letterValue[element] = 1}
-    } else {
-      if (letterValue[element] === "q" || "z") {
-      letterValue[element] += 10} else if (letterValue[element] === "j" || "x") {
-      letterValue[element] += 8} else if (letterValue[element] === "k"){
-      letterValue[element] += 5} else if (letterValue[element] === "f" || "h" || "v" || "w" || "y"){
-      letterValue[element] += 4} else if (letterValue[element] === "b" || "c" || "m" || "p"){
-      letterValue[element] += 3} else if (letterValue[element] === "d" || "g") {
-      letterValue[element] += 2} else {
-      letterValue[element] += 1}
-    }
+    if (letterOccurence[element] === undefined){
+    letterOccurence[element] = 1} else {
+    letterOccurence[element] += 1}
   })
-  return letterValue
+  letterOccurence["q"] *= 10
+  letterOccurence["z"] *= 10
+  letterOccurence["j"] *= 8
+  letterOccurence["x"] *= 8
+  letterOccurence["k"] *= 5
+  letterOccurence["f"] *= 4
+  letterOccurence["h"] *= 4
+  letterOccurence["v"] *= 4
+  letterOccurence["w"] *= 4
+  letterOccurence["y"] *= 4
+  letterOccurence["b"] *= 3
+  letterOccurence["c"] *= 3
+  letterOccurence["m"] *= 3
+  letterOccurence["p"] *= 3
+  letterOccurence["d"] *= 2
+  letterOccurence["g"] *= 2
+  letterOccurence["a"] *= 1
+  letterOccurence["e"] *= 1
+  letterOccurence["i"] *= 1
+  letterOccurence["o"] *= 1
+  letterOccurence["u"] *= 1
+  letterOccurence["l"] *= 1
+  letterOccurence["n"] *= 1
+  letterOccurence["s"] *= 1
+  letterOccurence["r"] *= 1
+  letterOccurence["t"] *= 1
+
+  let scores = Object.values(letterOccurence)
+  let result = scores.reduce((sum, currentNumber) =>
+  sum + currentNumber, 0)
+  console.log(result)
+
 
   //NEED to add value of all values of each key in the object
 }
+
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log(scrabbleScore('test'))
+console.log(scrabbleScore('qquizj'))
 console.log('-----------------')
 
 /***********
