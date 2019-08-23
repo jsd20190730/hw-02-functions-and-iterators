@@ -62,11 +62,16 @@ declared with const
 console.log('Problem 1:')
 
 // Add your code below this line
+const presidentsNamedJamesObj = presidents.filter(function (president){
+  return president.president.indexOf('James') === 0
+})
 
-// Add your code above this line
+// const presidentsNamedJames = Object.values(presidentsNamedJamesObj)
+// // console.log(presidentsNamedJames)
+// // // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(presidentsNamedJamesObj)
 console.log('-----------------')
 
 /***********
