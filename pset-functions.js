@@ -207,7 +207,7 @@ function scrabbleScore(word) {
   // console.log(scoresReal)
   let result = scoresReal.reduce((sum, currentNumber) =>
   sum + currentNumber, 0)
-  console.log(result)
+  return result
 }
 
 // Add your code above this line
@@ -249,12 +249,19 @@ console.log('Problem 4:')
 
 // Add your code below this line
 function isPalindrome(word) {
-
+  const letters = word.split('')
+  const lettersReverse = letters.reverse()
+  const wordReverse = lettersReverse.join('')
+  if (word === wordReverse) {
+    return true
+  }
+  return false
 }
+
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(isPalindrome('noon'))
 console.log('-----------------')
 
 /***********
@@ -283,9 +290,17 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
-
+function doubleLetterChecker (word) {
+  let letters = word.split("")
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i] === letters[i + 1]) {
+      return true
+    }
+  }
+  return false
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(doubleLetterChecker('run'))
 console.log('-----------------')
