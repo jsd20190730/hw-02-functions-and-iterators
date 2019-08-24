@@ -109,30 +109,30 @@ console.log('Problem 2:')
 
 function wordCount(phrase){
 
-  // split phrase into words
-  let splitWords = phrase.split(' ')
+  // split provided phrase into an array of words
+  let words = phrase.split(' ')
   
-  // find how many times a value occurs in any array
-  function getOccurrence(array, word) {
-    return array.filter((v) => (v === word)).length;
+  // create a generic function that returns how many times a value occurs in any given array
+  function getOccurrence(array, value) {
+    return array.filter((v) => (v === value)).length
   }
   
-  // create new array using above function
-  let newArray = splitWords.map(function(word){
-    return `${word}: ${getOccurrence(splitWords, word)}`
+  // using above function, create a new array of words and their occurances
+  let wordsAndOccurences = words.map(function(word){
+    return `${word}: ${getOccurrence(words, word)}`
   })
 
-  // remove duplicates from the new array
-  let uniqueArray = new Set(newArray)
-  newArray = [...uniqueArray]
+  // convert new array into a Set object in order to remove duplicates
+  let uniqueWordsAndOccurences = new Set(wordsAndOccurences)
 
-  // print out the new array
-  newArray.forEach(function(word){
-    console.log(word)
-  })
+  // convert Set object back to an array
+  uniqueWordsAndOccurences = Array.from(uniqueWordsAndOccurences)
+
+  return uniqueWordsAndOccurences
+
 }
 
-wordCount("olly olly in come free") // INSERT ANY PHRASE
+console.log(wordCount("olly olly in come free")) // INSERT ANY PHRASE
 
 // Add your code above this line
 
@@ -181,11 +181,11 @@ console.log('Problem 3:')
 
 function scrabbleScore(word){
 
-  //split word into characters
-  let splitWord = word.split('')
+  // split the provided word into an array of characters
+  const characters = word.split('')
   
   // create new array of points from characters
-  let arrayOfPoints = splitWord.map(function(character) {
+  const points = characters.map(function(character){
     if (character === 'q' || character === 'z'){
       return 10
     } else if (character === 'j' || character === 'x'){
@@ -204,11 +204,12 @@ function scrabbleScore(word){
   })
 
   // add points
-  let totalPoints = arrayOfPoints.reduce((sum, currentNumber) => sum + currentNumber)
-  console.log(totalPoints)
+  const score = points.reduce((sum, points) => sum + points)
+  
+  return score
 }
 
-scrabbleScore('cabbage') // INSERT ANY WORD
+console.log(scrabbleScore('cabbage')) // INSERT ANY WORD
 
 // Add your code above this line
 
@@ -250,13 +251,14 @@ console.log('Problem 4:')
 // Add your code below this line
 
 function isPalindrome(word){
-  let splitWord = word.split('')
-  let reverseArray = splitWord.reverse()
-  let reversedWord = reverseArray.join('')
-  word === reversedWord ? console.log('true') : console.log('false')
+  const characters = word.split('')
+  const reverseCharacters = characters.reverse()
+  const reverseWord = reverseCharacters.join('')
+  const result = (word === reverseWord) ? true : false
+  return result
 }
   
-isPalindrome('noon') // INSERT ANY WORD
+console.log(isPalindrome('noon')) // INSERT ANY WORD
 
 // Add your code above this line
 
@@ -291,11 +293,28 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
+
+
 function doubleLetters(word){
-    word.length === (new Set(word)).size ? console.log('false') : console.log('true')
+
+  // split the provided word into an array of characters
+  let letters = word.split('')
+
+  for(let i = 0; i < letters.length; i++){
+
+    // check if current letter is same as the next letter in the array
+    // if returns true, exits the entire doubleLetters function
+    if (letters[i] === letters[i + 1]){
+        return true
+    }
+
+  }
+
+  // by now, it's gone through the entire for loop, and nothing returned true
+  return false
 }
 
-doubleLetters('loop') // INSERT ANY WORD
+console.log(doubleLetters('loop'))
 
 // Add your code above this line
 
