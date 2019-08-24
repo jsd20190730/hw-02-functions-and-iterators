@@ -331,8 +331,8 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
-//okay i need to do a for in loop and then pass through result of the doublemap obj into the for loop so it can check to see if the character is repeated.
-//FUCK! OK. I GOT THIS. CAS YOU GOT THIS. YOU ARE THE SHIT. YOU ARE GOING TO BE THE BEST FUCKING PROGRAMMER IN THE WORLD.
+//Cas old code
+/*
 function doublePhrase(doubleWord) {
   const doubleCounter = doubleWord.split('')
   // NO SPACE!!! NO SPACE!!!!!!! ^^^^^ >(^.^)<
@@ -359,7 +359,28 @@ function doublePhrase(doubleWord) {
   console.log(charChecker())
 }
 
-doublePhrase('apple')
+doublePhrase('apple')*/
+
+// Kareem's code
+function doubleLetters (word) {
+  // create an array of letters from the provided word
+  let letters = word.split('')
+
+  for (let i = 0; i < letters.length; i++) {
+    // check if current letter in the loop
+    // is the same as the next letter in the loop
+    if (letters[i] === letters[i + 1]) {
+      // return true as soon as we find
+      // two consecutive letters that are the same
+      return true
+    }
+  }
+
+  // if for loop does not return true, then return false
+  return false
+}
+
+console.log(doubleLetters('apple'))
 
 // Add your code above this line
 
