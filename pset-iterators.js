@@ -63,18 +63,24 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
-const namesOnly = presidents.map(function(president){
-  return president.president
-})
+let presidentsNamedJames = function(){
 
-const presidentsNamedJames = namesOnly.filter(function(name){
-  let firstName = name.replace(/ .*/,'')
-  if (firstName === 'James') {
-    return name
-  }
-})
+  // filter out presidents with the first named James
+  // create a new array of objects
+  const namedJames = presidents.filter(function(president){
+    return president.president.startsWith('James')
+  })
 
-console.log(presidentsNamedJames)
+  // create a new array containing the 'president' properties from objects in namedJames array
+  const namesOnly = namedJames.map(function(president){
+    return president.president
+  })
+
+  return namesOnly
+
+}
+
+console.log(presidentsNamedJames())
 
 // Add your code above this line
 
@@ -127,25 +133,30 @@ console.log('Problem 3:')
 
 // Add your code below this line
 
-// add new property
-const addFirstYear = presidents.map(function(president){
-  president.year = president.took_office.substring(0, 4)
-  return president
-})
+const presidentsBetween1850and1900 = function(){
 
-// filter by specified range
-const inRange = addFirstYear.filter(function(president){
-  if (1990 > president.year && president.year > 1850) {
+  // create a new array of presidental objects with added took_office_year integer property
+  const presidentsWithAddedProperty = presidents.map(function(president){
+    president.took_office_year = parseInt(president.took_office.substring(0, 4))
     return president
-  }
-})
+  })
 
-// extract name property
-const presidentsBetween1850and1900 = inRange.map(function(president){
-  return president.president
-})
+  // filter out presidential objects whose took_office_year property is in the specified range
+  const presidentsInRange = presidentsWithAddedProperty.filter(function(president){
+    return (1850 < president.took_office_year && president.took_office_year < 1900)
+  })
 
-console.log(presidentsBetween1850and1900)
+  // create a new array containing only the 'president' properties from objects in presidentsInRange array
+  const namesOfPresidentsInRange = presidentsInRange.map(function(president){
+    return president.president
+  })
+
+  return namesOfPresidentsInRange
+
+}
+
+console.log(presidentsBetween1850and1900())
+
 
 // Add your code above this line
 
@@ -168,15 +179,21 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
-const isDead = presidents.filter(function(president){
-  return president.death_year === null
-})
+const livingPresidents = function(){
 
-const livingPresidents = isDead.map(function(president){
-  return president.president
-})
+  const livingPresidents = presidents.filter(function(president){
+    return president.death_year === null
+  })
 
-console.log(livingPresidents)
+  const namesOfLivingPresidents = livingPresidents.map(function(president){
+    return president.president
+  })
+
+  return namesOfLivingPresidents
+
+}
+
+console.log(livingPresidents())
 
 // Add your code above this line
 
@@ -226,25 +243,32 @@ console.log('Problem 6:')
 
 // Add your code below this line
 
-const leftOffice = presidents.filter(function(president){
-  return president.left_office !== null
-})
+const shortTermPresidents = function(){
 
-const addYears = leftOffice.map(function(president){
-  president.firstYear = president.took_office.substring(0, 4)
-  president.lastYear = president.left_office.substring(0, 4)
-  return president
-})
+  // remove the president who hasn't left office yet
+  presidents.pop()
 
-const lessThanFour = presidents.filter(function(president){
-  return president.lastYear - president.firstYear < 4
-})
+  // create a new array of presidental objects with added integer properties
+  const presidentsWithAddedProperties = presidents.map(function(president){
+    president.took_office_year = parseInt(president.took_office.substring(0, 4))
+    president.left_office_year = parseInt(president.left_office.substring(0, 4))
+    return president
+  })
 
-const shortTermPresidents = lessThanFour.map(function(president){
-  return president.president
-})
+  // filter out presidents who served less than four years
+  const presidentsWhoServedLessThanFourYears = presidentsWithAddedProperties.filter(function(president){
+    return president.left_office_year - president.took_office_year < 4
+  })
 
-console.log(shortTermPresidents)
+  const namesOfPresidentsWhoServedLessThanFourYears = presidentsWhoServedLessThanFourYears.map(function(president){
+    return president.president
+  })
+
+  return namesOfPresidentsWhoServedLessThanFourYears
+
+}
+
+console.log(shortTermPresidents())
 
 // Add your code above this line
 
