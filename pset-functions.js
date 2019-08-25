@@ -220,8 +220,8 @@ console.log('Problem 4:')
 function isPalindrome(word) {
 
     const letters  = word.split('')
-        firstLetter = letters.shift()
-        lastLetter  = letters.pop()
+    const firstLetter = letters.shift()
+    const lastLetter  = letters.pop()
 
     if (firstLetter !== lastLetter) {
         return false
@@ -270,7 +270,19 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
+function doubleLetters () {
+  let letters = word.split("")
 
+  for (let i = 0; i < letters.length; i++) {
+//check if current letter in the loop is the same as the next letter
+// in the loop
+    if (letters[i] === letters[i + 1]){
+      //return true as soon as the criteria is met (two consecutive letters)
+      return true
+    }
+}
+// if for loop does not return true then return false
+return false
 // Add your code above this line
 
 /** added for formatting purposes **/
