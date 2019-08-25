@@ -63,6 +63,11 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+const presidentsNamedJames = presidents.filter(function (president) {
+  return president.names === 'James'
+})
+
+console.log(presidentsNamedJames.president)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -87,7 +92,10 @@ Tip: your new array should contain 45 elements
 console.log('Problem 2:')
 
 // Add your code below this line
-
+const presidentialParties = presidents.filter(function(parties) => {
+  return presidents.party
+})
+console.log(presidentialParties.party)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -107,6 +115,13 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 console.log('Problem 3:')
 
 // Add your code below this line
+const presidentsBetween1850and1900 =
+presidents.find(function (president) {
+  return president.left_office - president.took_office === 4
+})
+
+console.log()
+
 
 // Add your code above this line
 
@@ -128,6 +143,8 @@ declared with const
 console.log('Problem 4:')
 
 // Add your code below this line
+const livingPresidents = presidents.map(president =>
+  presidents[death_year] === null)
 
 // Add your code above this line
 
@@ -149,7 +166,9 @@ called `firstRepublican`, declared with const
 console.log('Problem 5:')
 
 // Add your code below this line
-
+const firstRepublican = presidents.find(function (president) {
+  return president.party === 'Republican'
+})
 // Add your code above this line
 
 /** added for formatting purposes **/

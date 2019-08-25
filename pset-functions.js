@@ -27,10 +27,16 @@ Use the following test cases to confirm your program meets the success criteria
    Result: 21
 
 ************/
-console.log('Problem 1:')
+
 
 // Add your code below this line
 
+let blackJack = [22,22]
+
+let winner = blackJack.filter(number => number <= 21)
+
+
+console.log(winner)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -90,7 +96,26 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+function wordCounter(phrase){
+  const phraseWords = phrase.split(" ")
+  const wordMapObj = {}
 
+  phraseWords.forEach((word) => {
+  //check if word is already in wordMapObj
+  //if it is not in wordMapObj then add it as a key and set value to 1
+  //if word is already in wordMapObj then increment value of word (key) by 1
+  })
+}
+
+if (wordMapObj[word] === undefined) {
+//if word does not exist in wordMapObj
+  wordMapObj[word]= 1
+} else {
+  wordMapObj[word] += 1
+}
+})
+console.log(wordMapobj)
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -135,6 +160,22 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+  const scrabbleLetters =new Map([
+    ['A',1], ['E',1], ['I',1], ['O',1], ['U',1], ['L',1], ['N',1], ['R',1], ['S',1], ['T',1],
+    ['D',2], ['G',2],
+    ['B',3], ['C',3], ['M',3], ['P',3],
+    ['F',4], ['V',4], ['H',4], ['W',4], ['Y',4],
+    ['K',5],
+    ['X',8], ['J',8],
+    ['Z',10], ['Q',10]  ]
+  );
+  //made a map of arrays with values
+  function scrabbleScore(word){
+    return [...word]
+    //use a rest parameter to gather arguments into an array
+      .map(s => scrabbleLetters.get(s.toUpperCase()))
+      .reduce((acc,cur)=> acc+ cur,0);
+  };
 
 // Add your code above this line
 
@@ -175,6 +216,27 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+
+function isPalindrome(word) {
+
+    const letters  = word.split('')
+    const firstLetter = letters.shift()
+    const lastLetter  = letters.pop()
+
+    if (firstLetter !== lastLetter) {
+        return false
+    }
+
+    if (letters.length < 2) {
+        return true
+    }
+
+    return isPalindrome(letters.join(''));
+
+}
+
+
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -208,6 +270,19 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
+function doubleLetters () {
+  let letters = word.split("")
+
+  for (let i = 0; i < letters.length; i++) {
+//check if current letter in the loop is the same as the next letter
+// in the loop
+    if (letters[i] === letters[i + 1]){
+      //return true as soon as the criteria is met (two consecutive letters)
+      return true
+    }
+}
+// if for loop does not return true then return false
+return false
 // Add your code above this line
 
 /** added for formatting purposes **/
