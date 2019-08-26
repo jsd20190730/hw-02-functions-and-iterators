@@ -145,11 +145,16 @@ declared with const
 console.log('Problem 4:')
 
 // Add your code below this line
-
+const livingPresidents = []
+presidents.forEach((element) => {
+  if (element.death_year === null) {
+    livingPresidents.push(element.president)
+  }
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(livingPresidents)
 console.log('-----------------')
 
 /***********
