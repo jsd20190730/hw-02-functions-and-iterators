@@ -62,16 +62,16 @@ declared with const
 console.log('Problem 1:')
 
 // Add your code below this line
-const presidentsNamedJamesObj = presidents.filter(function (president){
+const presidentsNamedJamesArr = presidents.filter(function (president){
   return president.president.indexOf('James') === 0
 })
 
-// const presidentsNamedJames = Object.values(presidentsNamedJamesObj)
-// // console.log(presidentsNamedJames)
-// // // Add your code above this line
+for (let i = 0; i < presidentsNamedJamesArr.length; i++) {
+  console.log(presidentsNamedJamesArr[i].president)
+}
 
 /** added for formatting purposes **/
-console.log(presidentsNamedJamesObj)
+console.log('')
 console.log('-----------------')
 
 /***********
@@ -81,6 +81,7 @@ Problem 2:
 parties associated each of the presidents.
 Save the data in a variable called `presidentialParties`,
 declared with const
+
 
 2. Print `presidentialParties` to the console
 
@@ -92,11 +93,15 @@ Tip: your new array should contain 45 elements
 console.log('Problem 2:')
 
 // Add your code below this line
+const presidentialParties = []
 
+presidents.forEach((element) => {
+  presidentialParties.push(element.party)
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(presidentialParties)
 console.log('-----------------')
 
 /***********
