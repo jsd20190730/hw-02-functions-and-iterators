@@ -36,11 +36,11 @@ console.log('Sample Problem:')
 
 // Add your code below this line
 
-const firstWhigPresident = presidents.find(function (president) {
+const firstWhigPresident = presidents.find(function(president){
   return president.party === 'Whig'
 })
 
-console.log(firstWhigPresident.president)
+console.log(firstWhigPresident)
 
 // Add your code above this line
 
@@ -62,6 +62,13 @@ declared with const
 console.log('Problem 1:')
 
 // Add your code below this line
+
+const presidentsNamedJames = presidents.filter(function(president){
+  // indexOf is a method that works on a string or array and gives us the index of the item that is in ()
+  return president.president.indexOf("James") === 0
+})
+
+console.log(presidentNamedJames)
 
 // Add your code above this line
 
@@ -88,6 +95,12 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+const presidentialParties = presidents.map(function(president){
+  return president.party
+})
+
+console.log(presidentialParties)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -107,6 +120,13 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 console.log('Problem 3:')
 
 // Add your code below this line
+const presidentsBetween1850and1900 = presidents.filter(function(president){
+  // Number converts string to number ; slice (0,4) shows us that we work only with first 4 characters - from index 0 to 3
+  let took_office = Number(president.took_office.slice(0,4))
+  return took_office >= 1850 && took_office <= 1900
+})
+
+console.log(presidentsBetween1850and1900)
 
 // Add your code above this line
 
@@ -129,6 +149,10 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+const livingPresidents = presidents.filter(function(president){
+    return president.death_year === null
+})
+console.log(livingPresidents)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -149,6 +173,10 @@ called `firstRepublican`, declared with const
 console.log('Problem 5:')
 
 // Add your code below this line
+const firstRepublican = presidents.find(function(president){
+  return president.party === 'Republican'
+})
+console.log(firstRepublican)
 
 // Add your code above this line
 
@@ -170,7 +198,18 @@ called `shortTermPresidents`, declared with const
 console.log('Problem 6:')
 
 // Add your code below this line
+const shortTermPresidents = presidents.filter(function(president){
+  
+  if(president.left_office === null){
+    return false
+  }
+  let took_office = Number(president.took_office.slice(0,4))
+  let left_office = Number(president.left_office.slice(0,4))
+  return left_office - took_office < 4
 
+})
+
+console.log(shortTermPresidents)
 // Add your code above this line
 
 /** added for formatting purposes **/
