@@ -117,11 +117,18 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 console.log('Problem 3:')
 
 // Add your code below this line
+const presidentsBetween1850and1900 = []
+presidents.forEach((element) => {
+  let presidentsTookOffice = element.took_office.split("-")
+  if (presidentsTookOffice[0] >= 1850 && presidentsTookOffice[0] <= 1900) {
+    presidentsBetween1850and1900.push(element.president)
+  }
+})
 
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(presidentsBetween1850and1900)
 console.log('-----------------')
 
 /***********
