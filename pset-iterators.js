@@ -171,11 +171,13 @@ called `firstRepublican`, declared with const
 console.log('Problem 5:')
 
 // Add your code below this line
-
+const firstRepublican = presidents.find((element) => {
+  return element.party === 'Republican'
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(firstRepublican.president)
 console.log('-----------------')
 
 /***********
@@ -192,9 +194,26 @@ called `shortTermPresidents`, declared with const
 console.log('Problem 6:')
 
 // Add your code below this line
+let presidentsOutOfOfficeArr = presidents.filter(function (element) {
+    return element.left_office !== null
+  })
 
+
+const shortTermPresidents = []
+presidentsOutOfOfficeArr.forEach(function (element) {
+  let presidentsTookOfficeArr = element.took_office.split('-')
+  let presidentsLeftOfficeArr = element.left_office.split('-')
+  if (presidentsLeftOfficeArr[0] - presidentsTookOfficeArr[0] > 4) {
+    shortTermPresidents.push(element.president)
+  }
+})
+presidents.forEach(function (element) {
+  if (element.left_office === null) {
+    shortTermPresidents.push(element.president)
+  }
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(shortTermPresidents)
 console.log('-----------------')
