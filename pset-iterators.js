@@ -63,6 +63,25 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+let presidentsNamedJames = function(){
+
+  // filter out presidents with the first named James
+  // create a new array of objects
+  const namedJames = presidents.filter(function(president){
+    return president.president.startsWith('James')
+  })
+
+  // create a new array containing the 'president' properties from objects in namedJames array
+  const namesOnly = namedJames.map(function(president){
+    return president.president
+  })
+
+  return namesOnly
+
+}
+
+console.log(presidentsNamedJames())
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -88,6 +107,12 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+const presidentialParties = presidents.map(function(president){
+  return president.party
+})
+
+console.log(presidentialParties)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -107,6 +132,31 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 console.log('Problem 3:')
 
 // Add your code below this line
+
+const presidentsBetween1850and1900 = function(){
+
+  // create a new array of presidental objects with added took_office_year integer property
+  const presidentsWithAddedProperty = presidents.map(function(president){
+    president.took_office_year = parseInt(president.took_office.substring(0, 4))
+    return president
+  })
+
+  // filter out presidential objects whose took_office_year property is in the specified range
+  const presidentsInRange = presidentsWithAddedProperty.filter(function(president){
+    return (1850 < president.took_office_year && president.took_office_year < 1900)
+  })
+
+  // create a new array containing only the 'president' properties from objects in presidentsInRange array
+  const namesOfPresidentsInRange = presidentsInRange.map(function(president){
+    return president.president
+  })
+
+  return namesOfPresidentsInRange
+
+}
+
+console.log(presidentsBetween1850and1900())
+
 
 // Add your code above this line
 
@@ -129,6 +179,22 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+const livingPresidents = function(){
+
+  const livingPresidents = presidents.filter(function(president){
+    return president.death_year === null
+  })
+
+  const namesOfLivingPresidents = livingPresidents.map(function(president){
+    return president.president
+  })
+
+  return namesOfLivingPresidents
+
+}
+
+console.log(livingPresidents())
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -150,6 +216,12 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
+const firstRepublican = presidents.find(function(president){
+  return president.party === 'Republican'
+})
+
+console.log(firstRepublican.president)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -170,6 +242,33 @@ called `shortTermPresidents`, declared with const
 console.log('Problem 6:')
 
 // Add your code below this line
+
+const shortTermPresidents = function(){
+
+  // remove the president who hasn't left office yet
+  presidents.pop()
+
+  // create a new array of presidental objects with added integer properties
+  const presidentsWithAddedProperties = presidents.map(function(president){
+    president.took_office_year = parseInt(president.took_office.substring(0, 4))
+    president.left_office_year = parseInt(president.left_office.substring(0, 4))
+    return president
+  })
+
+  // filter out presidents who served less than four years
+  const presidentsWhoServedLessThanFourYears = presidentsWithAddedProperties.filter(function(president){
+    return president.left_office_year - president.took_office_year < 4
+  })
+
+  const namesOfPresidentsWhoServedLessThanFourYears = presidentsWhoServedLessThanFourYears.map(function(president){
+    return president.president
+  })
+
+  return namesOfPresidentsWhoServedLessThanFourYears
+
+}
+
+console.log(shortTermPresidents())
 
 // Add your code above this line
 

@@ -31,6 +31,22 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+function blackJack(playerCardScore,dealerCardScore){
+  if (playerCardScore === 21 || dealerCardScore === 21){
+    return 21
+  } else if (playerCardScore > 21 && dealerCardScore > 21){
+    return 0
+  } else if (playerCardScore < 21 && dealerCardScore > 21){
+    return playerCardScore
+  } else if (playerCardScore > 21 && dealerCardScore < 21){
+    return dealerCardScore
+  } else {
+    return Math.max(playerCardScore,dealerCardScore)
+  }
+}
+
+console.log(blackJack(19,21)) // INSERT ANY TWO NUMBERS
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -45,7 +61,7 @@ Create a function named `wordCount()` that accepts a parameter called "phrase" w
 For example, the phrase: "olly olly in come free" should result in output that looks similar to the following:
 
 ```
-olly: 1
+olly: 2
 in: 1
 come: 1
 free: 1
@@ -90,6 +106,33 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 2:')
 
 // Add your code below this line
+
+function wordCount(phrase){
+
+  // split provided phrase into an array of words
+  let words = phrase.split(' ')
+  
+  // create a generic function that returns how many times a value occurs in any given array
+  function getOccurrence(array, value) {
+    return array.filter((v) => (v === value)).length
+  }
+  
+  // using above function, create a new array of words and their occurances
+  let wordsAndOccurences = words.map(function(word){
+    return `${word}: ${getOccurrence(words, word)}`
+  })
+
+  // convert new array into a Set object in order to remove duplicates
+  let uniqueWordsAndOccurences = new Set(wordsAndOccurences)
+
+  // convert Set object back to an array
+  uniqueWordsAndOccurences = Array.from(uniqueWordsAndOccurences)
+
+  return uniqueWordsAndOccurences
+
+}
+
+console.log(wordCount("olly olly in come free")) // INSERT ANY PHRASE
 
 // Add your code above this line
 
@@ -136,6 +179,38 @@ console.log('Problem 3:')
 
 // Add your code below this line
 
+function scrabbleScore(word){
+
+  // split the provided word into an array of characters
+  const characters = word.split('')
+  
+  // create new array of points from characters
+  const points = characters.map(function(character){
+    if (character === 'q' || character === 'z'){
+      return 10
+    } else if (character === 'j' || character === 'x'){
+      return 8
+    } else if (character === 'k'){
+      return 5
+    } else if (character === 'f' || character === 'h' || character === 'v' || character === 'w' || character === 'y'){
+      return 4
+    } else if (character === 'b' || character === 'c' || character === 'm' || character === 'p'){
+      return 3
+    } else if (character === 'd' || character === 'g'){
+      return 2
+    } else {
+      return 1
+    }
+  })
+
+  // add points
+  const score = points.reduce((sum, points) => sum + points)
+  
+  return score
+}
+
+console.log(scrabbleScore('cabbage')) // INSERT ANY WORD
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -175,6 +250,16 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+function isPalindrome(word){
+  const characters = word.split('')
+  const reverseCharacters = characters.reverse()
+  const reverseWord = reverseCharacters.join('')
+  const result = (word === reverseWord) ? true : false
+  return result
+}
+  
+console.log(isPalindrome('noon')) // INSERT ANY WORD
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -207,6 +292,29 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
+
+
+
+function doubleLetters(word){
+
+  // split the provided word into an array of characters
+  let letters = word.split('')
+
+  for(let i = 0; i < letters.length; i++){
+
+    // check if current letter is same as the next letter in the array
+    // if returns true, exits the entire doubleLetters function
+    if (letters[i] === letters[i + 1]){
+        return true
+    }
+
+  }
+
+  // by now, it's gone through the entire for loop, and nothing returned true
+  return false
+}
+
+console.log(doubleLetters('loop'))
 
 // Add your code above this line
 
