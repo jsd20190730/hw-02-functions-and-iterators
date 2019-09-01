@@ -30,11 +30,17 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 1:')
 
 // Add your code below this line
-
+function blackJack(playerCardScore, dealerCardScore) {
+  if (playerCardScore > dealerCardScore || dealerCardScore > 21 && playerCardScore <= 21) {
+  return playerCardScore} else if (dealerCardScore > playerCardScore || playerCardScore > 21 && dealerCardScore <= 21) {
+  return dealerCardScore} else if (dealerCardScore === playerCardScore && dealerCardScore <= 21) {
+  return playerCardScore} else {
+  return 0}
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(blackJack(21, 21))
 console.log('-----------------')
 
 /***********
@@ -91,10 +97,28 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+
+function wordCount(phrase) {
+  //spliting the phrase into words in an array
+  const phraseWords = phrase.split(" ")
+  //object to contain instances of a word
+  const wordMapObj = {}
+  //runs through object phraseWords
+  //and adds string of number = instances of word to object wordMapObj
+  phraseWords.forEach((word) => {
+    if (wordMapObj[word] === undefined){
+    wordMapObj[word] = 1} else {
+    wordMapObj[word] += 1}
+  })
+  //returns an array of keys from wordMapObj to print
+  Object.keys(wordMapObj).forEach(function (word) {
+    console.log(`${word}: ${wordMapObj[word]}`)
+  })
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(wordCount("Baby shark, doo doo doo doo doo doo"))
 console.log('-----------------')
 
 /***********
@@ -135,11 +159,61 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+function scrabbleScore(word) {
+  // creates an array with each letter as a string
+  const letter = word.split("")
+  let letterOccurence = {}
+
+  //NEED to transfrom letters into lowercase
+  //goes through each element in the letter array
+  //assigns a value for the letter to a key in the letterValue object
+  letter.forEach((element) => {
+    if (letterOccurence[element] === undefined){
+    letterOccurence[element] = 1} else {
+    letterOccurence[element] += 1}
+  })
+  letterOccurence["q"] *= 10
+  letterOccurence["z"] *= 10
+  letterOccurence["j"] *= 8
+  letterOccurence["x"] *= 8
+  letterOccurence["k"] *= 5
+  letterOccurence["f"] *= 4
+  letterOccurence["h"] *= 4
+  letterOccurence["v"] *= 4
+  letterOccurence["w"] *= 4
+  letterOccurence["y"] *= 4
+  letterOccurence["b"] *= 3
+  letterOccurence["c"] *= 3
+  letterOccurence["m"] *= 3
+  letterOccurence["p"] *= 3
+  letterOccurence["d"] *= 2
+  letterOccurence["g"] *= 2
+  letterOccurence["a"] *= 1
+  letterOccurence["e"] *= 1
+  letterOccurence["i"] *= 1
+  letterOccurence["o"] *= 1
+  letterOccurence["u"] *= 1
+  letterOccurence["l"] *= 1
+  letterOccurence["n"] *= 1
+  letterOccurence["s"] *= 1
+  letterOccurence["r"] *= 1
+  letterOccurence["t"] *= 1
+
+
+  let scores = Object.values(letterOccurence)
+  let scoresReal = scores.filter (number => {
+    return number === number
+  })
+  // console.log(scoresReal)
+  let result = scoresReal.reduce((sum, currentNumber) =>
+  sum + currentNumber, 0)
+  return result
+}
 
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(scrabbleScore('cabbage'))
 console.log('-----------------')
 
 /***********
@@ -174,11 +248,20 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 4:')
 
 // Add your code below this line
+function isPalindrome(word) {
+  const letters = word.split('')
+  const lettersReverse = letters.reverse()
+  const wordReverse = lettersReverse.join('')
+  if (word === wordReverse) {
+    return true
+  }
+  return false
+}
 
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(isPalindrome('noon'))
 console.log('-----------------')
 
 /***********
@@ -207,9 +290,17 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
-
+function doubleLetterChecker (word) {
+  let letters = word.split("")
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i] === letters[i + 1]) {
+      return true
+    }
+  }
+  return false
+}
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(doubleLetterChecker('run'))
 console.log('-----------------')

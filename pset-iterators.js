@@ -62,8 +62,13 @@ declared with const
 console.log('Problem 1:')
 
 // Add your code below this line
+const presidentsNamedJamesArr = presidents.filter(function (president){
+  return president.president.indexOf('James') === 0
+})
 
-// Add your code above this line
+for (let i = 0; i < presidentsNamedJamesArr.length; i++) {
+  console.log(presidentsNamedJamesArr[i].president)
+}
 
 /** added for formatting purposes **/
 console.log('')
@@ -77,6 +82,7 @@ parties associated each of the presidents.
 Save the data in a variable called `presidentialParties`,
 declared with const
 
+
 2. Print `presidentialParties` to the console
 
 (partial) Expected Result: ['No Party', 'Federalist', 'Democratic-Republican', 'Democratic-Republican', 'Democratic-Republican', 'Democratic', .... ]
@@ -87,11 +93,15 @@ Tip: your new array should contain 45 elements
 console.log('Problem 2:')
 
 // Add your code below this line
+const presidentialParties = []
 
+presidents.forEach((element) => {
+  presidentialParties.push(element.party)
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(presidentialParties)
 console.log('-----------------')
 
 /***********
@@ -107,11 +117,18 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 console.log('Problem 3:')
 
 // Add your code below this line
+const presidentsBetween1850and1900 = []
+presidents.forEach((element) => {
+  let presidentsTookOffice = element.took_office.split("-")
+  if (presidentsTookOffice[0] >= 1850 && presidentsTookOffice[0] <= 1900) {
+    presidentsBetween1850and1900.push(element.president)
+  }
+})
 
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(presidentsBetween1850and1900)
 console.log('-----------------')
 
 /***********
@@ -128,11 +145,16 @@ declared with const
 console.log('Problem 4:')
 
 // Add your code below this line
-
+const livingPresidents = []
+presidents.forEach((element) => {
+  if (element.death_year === null) {
+    livingPresidents.push(element.president)
+  }
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(livingPresidents)
 console.log('-----------------')
 
 /***********
@@ -149,11 +171,13 @@ called `firstRepublican`, declared with const
 console.log('Problem 5:')
 
 // Add your code below this line
-
+const firstRepublican = presidents.find((element) => {
+  return element.party === 'Republican'
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(firstRepublican.president)
 console.log('-----------------')
 
 /***********
@@ -170,9 +194,26 @@ called `shortTermPresidents`, declared with const
 console.log('Problem 6:')
 
 // Add your code below this line
+let presidentsOutOfOfficeArr = presidents.filter(function (element) {
+    return element.left_office !== null
+  })
 
+
+const shortTermPresidents = []
+presidentsOutOfOfficeArr.forEach(function (element) {
+  let presidentsTookOfficeArr = element.took_office.split('-')
+  let presidentsLeftOfficeArr = element.left_office.split('-')
+  if (presidentsLeftOfficeArr[0] - presidentsTookOfficeArr[0] > 4) {
+    shortTermPresidents.push(element.president)
+  }
+})
+presidents.forEach(function (element) {
+  if (element.left_office === null) {
+    shortTermPresidents.push(element.president)
+  }
+})
 // Add your code above this line
 
 /** added for formatting purposes **/
-console.log('')
+console.log(shortTermPresidents)
 console.log('-----------------')
