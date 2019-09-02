@@ -61,7 +61,12 @@ declared with const
 ************/
 console.log('Problem 1:')
 
+
 // Add your code below this line
+
+const presidentsNamedJames = presidents.filter(kingJames => kingJames.president.indexOf('James') === 0)
+
+console.log(presidentsNamedJames)
 
 // Add your code above this line
 
@@ -88,6 +93,12 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+
+const presidentialParties = presidents.map(function (president) {
+  return president.party
+})
+
+console.log(presidentialParties)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -106,7 +117,17 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 ************/
 console.log('Problem 3:')
 
+// return all of the presidents then
+
 // Add your code below this line
+
+const presidentsBetween1850and1900 = presidents.filter(dateInOffice => {
+   let stepUp = dateInOffice.took_office.slice(0,4)
+   if (stepUp < 1900 && stepUp > 1850) {
+   return true;
+ }
+})
+console.log(presidentsBetween1850and1900)
 
 // Add your code above this line
 
@@ -129,6 +150,14 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+const livingPresidents = presidents.filter(stayinAlive => {
+  let beeGees = stayinAlive.death_year
+  if (beeGees === null) {
+  return true;
+ }
+})
+console.log(livingPresidents)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -150,6 +179,12 @@ console.log('Problem 5:')
 
 // Add your code below this line
 
+const firstRepublican = presidents.find(function (president) {
+  return president.party === 'Republican'
+})
+
+console.log(firstRepublican.president)
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -170,6 +205,22 @@ called `shortTermPresidents`, declared with const
 console.log('Problem 6:')
 
 // Add your code below this line
+
+
+const shortTermPresidents = presidents.filter(lessThan4 => {
+
+ let fuckDonaldTrump = presidents.pop()
+
+ let yearLeft = lessThan4.left_office.slice(0,4)
+ let yearStart = lessThan4.took_office.slice(0,4)
+
+ let numberOfYears = yearLeft - yearStart
+  if (numberOfYears < 4) {
+  return true;
+ }
+})
+
+console.log(shortTermPresidents)
 
 // Add your code above this line
 

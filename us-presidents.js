@@ -363,7 +363,7 @@ const presidents = [
     number: 41,
     president: 'George H. W. Bush',
     birth_year: 1924,
-    death_year: null,
+    death_year: 2018,
     took_office: '1989-01-20',
     left_office: '1993-01-20',
     party: 'Republican'
