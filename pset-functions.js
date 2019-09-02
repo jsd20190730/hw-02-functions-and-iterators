@@ -31,6 +31,28 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+function blackJack (playerCardScore, dealerCardScore){
+
+  if (playerCardScore > 21 && dealerCardScore > 21){
+    return (`Result: 0`)
+  }
+
+  else if (playerCardScore <= 21 && dealerCardScore > 21){
+    return (`Result: ${playerCardScore}`)
+  }
+
+  else if (playerCardScore > 21 && dealerCardScore <= 21){
+    return (`Result: ${dealerCardScore}`)
+  }
+
+  else{
+    let score = Math.max (playerCardScore, dealerCardScore)
+    return (`Result: ${score}`)
+  }
+}
+
+console.log(blackJack(19, 22))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -91,6 +113,30 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+function wordCount(stringOfWords) {
+
+ let wordArray = stringOfWords.split(/\s+/)
+
+ let wordCounts = {}
+
+ for (i = 0; i < wordArray.length; i++) {
+
+   let word = wordArray[i]
+   if (!wordCounts[word]) {
+     wordCounts[word] = 1
+   } else {
+     wordCounts[word]++
+   }
+ }
+ return wordCounts
+}
+
+let testCase = wordCount("Humpty Dumpty sat on a wall Humpty Dumpty had a great fall")
+
+for (let [key, value] of Object.entries(testCase)) {
+ console.log(`${key}: ${value}`)
+}
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -136,6 +182,32 @@ console.log('Problem 3:')
 
 // Add your code below this line
 
+let letters = {
+    a: 1,b: 3,c: 3,d: 2,
+    e: 1,f: 4,g: 2,h: 4,
+    i: 1,j: 8,k: 5,l: 1,
+    m: 3,n: 1,o: 1,p: 3,
+    q: 10,r: 1,s: 1,t: 1,
+    u: 1,v: 4,w: 4,x: 8,
+    y: 4,z: 10
+  }
+
+  score = 0
+
+  function wordScore(word) {
+
+    let wordArray = word.toLowerCase().split("")
+
+    for (let i = 0; i < wordArray.length; i++) {
+          score = score + parseInt(letters[wordArray[i]])
+        }
+
+      console.log(score)
+
+      }
+
+test = wordScore('javascript')
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -175,6 +247,19 @@ console.log('Problem 4:')
 
 // Add your code below this line
 
+function isPalindrome(word){
+  wordArray = word.split("")
+  let rev_wordArray = wordArray.reverse().join("")
+  if (rev_wordArray === word){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+console.log(isPalindrome('racecar'))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -207,6 +292,21 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
+
+function doubleLetters(str){
+    let len = str.length
+    for(let i=0; i<len; i++){
+        let temp = str[i]
+        for(let x=i+1; x<= len -1; x++){
+            if (temp == str[x]){
+                return true
+            }
+        }// inner
+    }// outer
+    return false
+}
+
+console.log(doubleLetters('apple'))
 
 // Add your code above this line
 
