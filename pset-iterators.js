@@ -62,6 +62,15 @@ declared with const
 console.log('Problem 1:')
 
 // Add your code below this line
+const presidentsNamedJames = []
+presidents.forEach(function(element){
+  let fullName = element.president.split(" ")
+  if (fullName[0] === "James"){
+    presidentsNamedJames.push(element)
+  }
+})
+
+console.log(presidentsNamedJames)
 
 // Add your code above this line
 
@@ -87,6 +96,12 @@ Tip: your new array should contain 45 elements
 console.log('Problem 2:')
 
 // Add your code below this line
+const presidentialParties = []
+presidents.forEach(function(element){
+  presidentialParties.push(element.party)
+})
+
+console.log(presidentialParties)
 
 // Add your code above this line
 
@@ -107,6 +122,15 @@ between 1850 and 1900. Save the data in a variable called `presidentsBetween1850
 console.log('Problem 3:')
 
 // Add your code below this line
+const presidentsBetween1850and1900 = []
+presidents.forEach(function(element){
+  let yrArr = element.took_office.split("-")
+  if (yrArr[0] >= 1850 && yrArr[0] <= 1900){
+    presidentsBetween1850and1900.push(element)
+  }
+})
+
+console.log(presidentsBetween1850and1900)
 
 // Add your code above this line
 
@@ -128,6 +152,14 @@ declared with const
 console.log('Problem 4:')
 
 // Add your code below this line
+const alivePresidents = []
+presidents.forEach(function(element){
+  if (element.death_year === null){
+    alivePresidents.push(element)
+  }
+})
+
+console.log(alivePresidents)
 
 // Add your code above this line
 
@@ -149,6 +181,11 @@ called `firstRepublican`, declared with const
 console.log('Problem 5:')
 
 // Add your code below this line
+const firstRepublican = presidents.find(function (president) {
+  return president.party === 'Republican'
+})
+
+console.log(firstRepublican.president)
 
 // Add your code above this line
 
@@ -170,6 +207,20 @@ called `shortTermPresidents`, declared with const
 console.log('Problem 6:')
 
 // Add your code below this line
+const shortTermPresidents = []
+
+presidents.forEach(function(element){
+  let startDt = new Date (element.took_office)
+  let endDt = new Date (element.left_office)
+
+  let days = (endDt - startDt)/(1000 * 3600 * 24)
+
+  if (days <= 1460){
+    shortTermPresidents.push(element)
+  }
+
+  console.log(shortTermPresidents)
+})
 
 // Add your code above this line
 
