@@ -32,11 +32,11 @@ console.log('Problem 1:')
 let playerCardScore = 21
 let dealerCardScore = 21
 
-const maximumScore = 21
-const overScore = 22
-const defaultScore = 0
-
 function blackJack(playerCardScore, dealerCardScore) {
+
+  const maximumScore = 21
+  const overScore = 22
+  const defaultScore = 0
 
   let outComeOne = maximumScore - playerCardScore;
   let outComeTwo = maximumScore - dealerCardScore;
@@ -126,26 +126,25 @@ console.log('Problem 2:')
 
 function wordCounter (phrase) {
   //function called word counter with parameter of phrase that passes in the string
-     const wordCount = phrase.split(' ')
+  const wordCount = phrase.split(' ')
      //split the phrase up! SPACE!!!! YOU NEED SPACE!!!! >(^.^)<
-     const wordMapObj = {} // keeps track of occurances
+  const wordMapObj = {} // keeps track of occurances
 // any time you have to check a string you use a hashmap
-     wordCount.forEach((word) => {
+    wordCount.forEach((word) => {
       //check if word is already in wordMapObj
       //if it is not in wordmapObj then add it and set value to one
       //if word is already in wordMapObj then increment value of word (key) by 1
 
       //how do you check to see if a key is in the object? you can use dot notation or use bracket notation as well
       //with dot notation you cannot pass in a variable to see if that key exists
-      if (wordMapObj[word] === undefined) {
+    if (wordMapObj[word] === undefined) {
         //if word does not exist in wordMapObj
-        wordMapObj[word] = 1
-      }
-      else {
-        wordMapObj[word] += 1
-      }
-     })
-    console.log(wordMapObj)
+    wordMapObj[word] = 1
+    } else {
+    wordMapObj[word] += 1
+    }
+  })
+  console.log(wordMapObj)
 }
 wordCounter('Humpty Dumpty sat on a wall Humpty Dumpty had a great fall')
 
@@ -201,36 +200,28 @@ function scrabbleScore(scrabbleWord) {
 
   let letterPoints = scrabbleLetters.map(letter => {
     if (letter === 'q' || letter === 'z'){
-    return 10
-    }
-      else if (letter === 'j' || letter === 'x')
-      {
+      return 10
+    } else if (letter === 'j' || letter === 'x') {
       return 8
-      }
-      else if (letter === 'k'){
+    }  else if (letter === 'k') {
       return 5
-      }
-       else if (letter === 'f' || letter  === 'h' || letter  === 'v' || letter  === 'w' || letter  === 'y')
-      {
+    } else if (letter === 'f' || letter  === 'h' || letter  === 'v' || letter  === 'w' || letter  === 'y') {
       return 4
-      }
-      else if (letter  === 'b' || letter === 'c' || letter === 'm' || letter === 'p')
-      {
+    } else if (letter  === 'b' || letter === 'c' || letter === 'm' || letter === 'p') {
       return 3
-      }
-      else if (letter === 'd' || letter === 'g')
-      {
+    } else if (letter === 'd' || letter === 'g') {
       return 2
-      }
-       else {
-      return 1
-      }
-    })
+    } else {
+    return 1
+    }
+  })
   const totalPoints = letterPoints.reduce((a,b) => a + b, 0)
 //*happy dance*
   console.log(totalPoints)
 }
 console.log(scrabbleScore('scrabbleWord'))
+
+
 
 
 // Add your code above this line
@@ -280,19 +271,15 @@ console.log('Problem 4:')
 
 
 function isPalindrome(paladinWord) {
-  const paladinReverseArray = paladinWord.split('').reverse().join('');
+  const paladinReverseWord = paladinWord.split('').reverse().join('');
   //koo, i am getting the reverse of the string here
   //console.log(paladinReverseArray)
-
-  function paladinChecker() {
-    if (paladinWord === paladinReverseArray) {
+    if (paladinWord === paladinReverseWord) {
         return true
-    }
-    else {
+    } else {
       return false
       }
-    }
-  console.log(paladinChecker())
+  console.log(isPalindrome())
   }
 
 // *HAPPY DANCE*
@@ -332,34 +319,35 @@ console.log('Problem 5:')
 // Add your code below this line
 
 //Cas old code
-/*
-function doublePhrase(doubleWord) {
-  const doubleCounter = doubleWord.split('')
-  // NO SPACE!!! NO SPACE!!!!!!! ^^^^^ >(^.^)<
-  const doubleMapObj = {}
-
-  doubleCounter.forEach((char) => {
-
-   if (doubleMapObj[char] === undefined) {
-     doubleMapObj[char] = 1
-   }
-   else {
-     doubleMapObj[char] += 1
-   }
-  })
-
-  function charChecker() {
-    for (let char in doubleMapObj) {
-      if (doubleMapObj[char] > 1) {
-        return true
-      }
-    }
-    return false
-  }
-  console.log(charChecker())
-}
-
-doublePhrase('apple')*/
+// function doublePhrase(doubleWord) {
+//   const doubleCounter = doubleWord.split('')
+//   // NO SPACE!!! NO SPACE!!!!!!! ^^^^^ >(^.^)<
+//   const doubleMapObj = {}
+//
+//   doubleCounter.forEach((char) => {
+//
+//    if (doubleMapObj[char] === undefined) {
+//      doubleMapObj[char] = 1
+//    }
+//    else {
+//      doubleMapObj[char] += 1
+//    }
+//   })
+//
+//   function charChecker() {
+//     //for in only works keys for objects
+//     //object.keys
+//     for (let char in doubleMapObj) {
+//       if (doubleMapObj[char] > 1) {
+//         return true
+//       }
+//     }
+//     return false
+//   }
+//   console.log(charChecker())
+// }
+//
+// doublePhrase('apple')
 
 // Kareem's code
 function doubleLetters (word) {
@@ -387,3 +375,17 @@ console.log(doubleLetters('apple'))
 /** added for formatting purposes **/
 console.log('')
 console.log('-----------------')
+
+
+// let points = {
+//     e: 1, a: 1, i: 1, o: 1, n: 1, r: 1, t: 1, l: 1, s: 1, u: 1,
+//     d: 2, g: 2,
+//     b: 3, c: 3, m: 3, p: 3,
+//     f: 4, h: 4, v: 4, w: 4, y: 4,
+//     k: 5,
+//     j: 8, x: 8,
+//     q: 10, z: 10 }
+//
+// let letter = 'k'
+// console.log(points[letter])
+// //

@@ -151,9 +151,9 @@ console.log('Problem 4:')
 // Add your code below this line
 
 const livingPresidents = presidents.filter(stayinAlive => {
-   let beeGees = stayinAlive.death_year
-   if (beeGees === null) {
-   return true;
+  let beeGees = stayinAlive.death_year
+  if (beeGees === null) {
+  return true;
  }
 })
 console.log(livingPresidents)
@@ -209,14 +209,14 @@ console.log('Problem 6:')
 
 const shortTermPresidents = presidents.filter(lessThan4 => {
 
-  let fuckDonaldTrump = presidents.pop()
+ let fuckDonaldTrump = presidents.pop()
 
-   let yearLeft = lessThan4.left_office.slice(0,4)
-   let yearStart = lessThan4.took_office.slice(0,4)
+ let yearLeft = lessThan4.left_office.slice(0,4)
+ let yearStart = lessThan4.took_office.slice(0,4)
 
-   let numberOfYears = yearLeft - yearStart
-   if (numberOfYears < 4) {
-   return true;
+ let numberOfYears = yearLeft - yearStart
+  if (numberOfYears < 4) {
+  return true;
  }
 })
 
